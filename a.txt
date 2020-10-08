@@ -1,0 +1,33 @@
+练习git的第一步：
+先下载:
+https://git-scm.com/downloads
+
+:
+git管理工具
+
+第二步：傻瓜式安装，完成后鼠标右键可以看到git bash/gui here,即为安装完成
+第三步：项目中使用git bash here打开类似于npm管理页面，
+	输入git init初始化，出现.git文件夹。
+第四步：将工作区的内容存入暂存区：
+	输入 git add 
+		.所有有变化的文件/
+		xxx文件夹名/
+		*.js所有js文件
+第五步：将暂存区的内容放入主分支/版本库
+	git commit -m "做了什么"
+	如果文件上传后修改内容，通过 git status 查看状态，会发现爆红，提示哪些文件做了改动。通过 git diff 文件名.后缀可以查看文件中具体哪些内容发生了变化。
+	会提示该工作区没有绑定账户，输入以下内容
+	git config --global user.email"github邮箱"
+	git config --global user.name"github用户名"
+	可以通过git log/git log --pretty=oneline查看上传记录
+
+重点：撤销修改：
+	工作区--->工作区：
+		git checkout -- 文件名.后缀(注意间隔)
+	暂存区--->工作区：
+		首先将暂存区的修改退回到工作区
+		git reset HEAD 文件名.后缀(注意间隔)
+		随后撤销工作区的修改
+		git checkout -- 文件名.后缀(注意间隔)
+	版本库--->工作区：
+		git reset --hard HEAD
